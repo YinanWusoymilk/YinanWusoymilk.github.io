@@ -7,22 +7,32 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 50px;
+            margin: 0; /* 移除外边距 */
             display: flex;
+            height: 100vh; /* 设置高度为视口的100% */
+            background: linear-gradient(to right, #FFEB99 20%, #E0E0E0 80%);
         }
 
         #photo-container {
-            width: 40%;
+            width: 33%;
             padding: 20px;
+            padding-left: 130px;
+            box-sizing: border-box; /* 使内边距和边框不增加元素的总宽度 */
+            overflow: auto;
+
         }
 
         #content-container {
             width: 60%;
             padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        
         }
 
         img {
-            width: 200px;
+            margin-top: 30px;
+            width: 250px;
             height: auto;
         }
 
@@ -31,6 +41,8 @@
 <body>
     <div id="photo-container">
         <img src="images/myphoto.jpg" alt="My Photo">
+        <p>Yinan Wu</p>
+        <p>I come from Chonqing, China</p>
     </div>
     <div id="content-container">
         <h1>Welcome to My Personal Website!</h1>
