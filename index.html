@@ -22,13 +22,28 @@
 
         }
 
+        #right-column {
+            display: flex;
+            flex-direction: column;  /* 使得content-container和additional-content-container垂直排列 */
+            width: 67%;
+        }
+
         #content-container {
-            width: 60%;
+            /* width: 60%; */
             padding: 20px;
             box-sizing: border-box;
             overflow: auto;
-        
+            flex: 1;  /* 占据剩余空间的一半 */
         }
+
+        #additional-content-container {
+            /* width: 60%;  与原来的content-container相同的宽度 */
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+            flex: 1;  /* 占据剩余空间的一半 */
+        }
+
 
         img {
             margin-top: 30px;
@@ -42,14 +57,24 @@
     <div id="photo-container">
         <img src="images/myphoto.jpg" alt="My Photo">
         <p>Yinan Wu</p>
+        <p>You can also call me Danny</p>
         <p>I come from Chonqing, China</p>
+
     </div>
-    <div id="content-container">
-        <h1>Welcome to My Personal Website!</h1>
-        <p>I'm currently studying Msc in Computer Science in University of Birmingham, expected to graduate in December, 2023!</p>
-        <footer>
-            <p>Contact me at: [yinanwuwu@gmail.com]</p>
-        </footer>
+    <div id="right-column"> <!-- 新添加的容器 -->
+        <div id="content-container">
+            <h1>Welcome to My Personal Website!</h1>
+            <p>I'm currently studying Msc in Computer Science in University of Birmingham, expected to graduate in December, 2023!</p>
+            <footer>
+                <p>Contact me at: [yinanwuwu@gmail.com]</p>
+            </footer>
+        </div>
+
+        <div id="additional-content-container">
+            <h2>News</h2>
+            <p>[01/10/2023]I recently finished my dissertation! you can find more information on my github!</p>
+            <p>[07/08/2023]I took a short break to Newcastle, which was a lovely trip! <p>
+        </div>
     </div>
 </body>
 </html>
