@@ -51,19 +51,30 @@
             height: auto;
         }
 
+        hr {
+            border: 0; /* 移除默认的边框 */
+            border-top: 1px solid black; /* 添加一个黑色的上边框 */
+            margin: 10px 0; /* 添加上下的间距，使其看起来更整洁 */
+        }
+
+        .personal-info {
+            font-family: 'Georgia', serif; 
+        }
+
     </style>
 </head>
 <body>
     <div id="photo-container">
         <img src="images/myphoto.jpg" alt="My Photo">
-        <p>Yinan Wu</p>
-        <p>You can also call me Danny</p>
-        <p>I come from Chonqing, China</p>
+        <p class="personal-info">Yinan Wu</p>
+        <p class="personal-info">You can also call me Danny</p>
+        <p class="personal-info">I come from Chonqing, China</p>
 
     </div>
     <div id="right-column"> <!-- 新添加的容器 -->
         <div id="content-container">
             <h1>Welcome to My Personal Website!</h1>
+            <hr>
             <p>I'm currently studying Msc in Computer Science in University of Birmingham, expected to graduate in December, 2023!</p>
             <footer>
                 <p>Contact me at: [yinanwuwu@gmail.com]</p>
@@ -72,8 +83,12 @@
 
         <div id="additional-content-container">
             <h2>News</h2>
+            <hr>
             <p>[01/10/2023]I recently finished my dissertation! you can find more information on my github!</p>
             <p>[07/08/2023]I took a short break to Newcastle, which was a lovely trip! <p>
+            <p>[01/06/2023]I began my MSc project under the supervision of Phillip Smith <p>
+            <p>[20/05/2023]I finished a small full stack project, you can find more information on my github!<p>
+            
         </div>
     </div>
 </body>
