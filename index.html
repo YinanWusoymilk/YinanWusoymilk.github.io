@@ -3,93 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Yinan Wu — PhD Student, NC State</title>
+    <meta name="description" content="Yinan Wu is a PhD student in Computer Science at North Carolina State University, working on Software Engineering and Human-Computer Interaction.">
     <style>
+        :root {
+            --bg: #fafaf7;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --muted: #5b5b5b;
+            --line: #e6e3dc;
+            --accent: #c8102e;
+            --accent-soft: #fbeaec;
+            --radius: 14px;
+            --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+            --max: 980px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0; /* 移除外边距 */
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(250, 250, 247, 0.85);
+            backdrop-filter: saturate(180%) blur(10px);
+            -webkit-backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+        nav .inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 24px;
             display: flex;
-            height: 100vh; /* 设置高度为视口的100% */
-            background: linear-gradient(to right, #FFEB99 20%, #E0E0E0 80%);
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
         }
-
-        #photo-container {
-            width: 33%;
-            padding: 20px;
-            padding-left: 130px;
-            box-sizing: border-box; /* 使内边距和边框不增加元素的总宽度 */
-            overflow: auto;
-
+        nav .brand {
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            color: var(--text);
         }
-
-        #right-column {
+        nav ul {
             display: flex;
-            flex-direction: column;  /* 使得content-container和additional-content-container垂直排列 */
-            width: 67%;
+            gap: 22px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul a {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+        nav ul a:hover {
+            color: var(--accent);
+            text-decoration: none;
         }
 
-        #content-container {
-            /* width: 60%; */
-            padding: 20px;
-            box-sizing: border-box;
-            overflow: auto;
-            flex: 1;  /* 占据剩余空间的一半 */
+        section {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 56px 24px 24px;
         }
 
-        #additional-content-container {
-            /* width: 60%;  与原来的content-container相同的宽度 */
-            padding: 20px;
-            box-sizing: border-box;
-            overflow: auto;
-            flex: 1;  /* 占据剩余空间的一半 */
+        h1, h2, h3 { line-height: 1.25; }
+
+        .hero {
+            padding: 64px 24px 32px 24px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 36px;
+            align-items: center;
+        }
+        .hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 32px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+        .hero h1 {
+            margin: 0 0 6px 0;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .hero .role {
+            margin: 0 0 14px 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+        .hero .tagline {
+            margin: 0 0 18px 0;
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .hero .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .hero .links a,
+        .hero .links .chip {
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.88rem;
+        }
+        .hero .links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .hero .links .chip {
+            cursor: default;
+            user-select: all;
         }
 
-
-        img {
-            margin-top: 30px;
-            width: 250px;
-            height: auto;
+        h2.section-title {
+            font-size: 1.5rem;
+            margin: 0 0 22px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+            font-weight: 600;
         }
 
-        hr {
-            border: 0; /* 移除默认的边框 */
-            border-top: 1px solid black; /* 添加一个黑色的上边框 */
-            margin: 10px 0; /* 添加上下的间距，使其看起来更整洁 */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            box-shadow: var(--shadow);
         }
 
-        .personal-info {
-            font-family: 'Georgia', serif; 
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .grid-3 .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.05rem;
+        }
+        .grid-3 .card p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: var(--muted);
         }
 
+        .news-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .news-list li {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--line);
+            font-size: 0.95rem;
+        }
+        .news-list li:last-child { border-bottom: 0; }
+        .news-list .date {
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+            font-size: 0.88rem;
+        }
+
+        .pub {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+        .pub:last-child { border-bottom: 0; }
+        .pub .venue-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        .pub h3 {
+            margin: 0 0 4px 0;
+            font-size: 1.02rem;
+            font-weight: 600;
+        }
+        .pub .authors {
+            margin: 0 0 4px 0;
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+        .pub .authors .me { font-weight: 600; }
+        .pub .meta {
+            margin: 0 0 6px 0;
+            font-size: 0.88rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+        .pub .links a {
+            font-size: 0.85rem;
+            margin-right: 12px;
+        }
+
+        .timeline { margin: 0; padding: 0; list-style: none; }
+        .timeline li {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 18px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .timeline li:last-child { border-bottom: 0; }
+        .timeline .when {
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .timeline .what h3 {
+            margin: 0 0 2px 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .timeline .what p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        footer {
+            max-width: var(--max);
+            margin: 40px auto 0;
+            padding: 32px 24px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.88rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media (max-width: 720px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero img { margin: 0 auto; width: 160px; height: 160px; border-radius: 26px; }
+            .hero .links { justify-content: center; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .pub, .timeline li, .news-list li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            nav ul { gap: 14px; font-size: 0.85rem; }
+            nav ul a { font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body>
-    <div id="photo-container">
-        <img src="images/myphoto.jpg" alt="My Photo">
-        <p class="personal-info">Yinan Wu</p>
-        <p class="personal-info">You can also call me Danny</p>
-        <p class="personal-info">I come from Chonqing, China</p>
 
+<nav>
+    <div class="inner">
+        <span class="brand">Yinan Wu</span>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#news">News</a></li>
+        </ul>
     </div>
-    <div id="right-column"> <!-- 新添加的容器 -->
-        <div id="content-container">
-            <h1>Welcome to My Personal Website!</h1>
-            <hr>
-            <p>I'm currently studying Msc in Computer Science in University of Birmingham, expected to graduate in December, 2023!</p>
-            <footer>
-                <p>Contact me at: [yinanwuwu@gmail.com]</p>
-            </footer>
-        </div>
+</nav>
 
-        <div id="additional-content-container">
-            <h2>News</h2>
-            <hr>
-            <p>[01/10/2023]I recently finished my dissertation! you can find more information on my github!</p>
-            <p>[07/08/2023]I took a short break to Newcastle, which was a lovely trip! <p>
-            <p>[01/06/2023]I began my MSc project under the supervision of Phillip Smith <p>
-            <p>[20/05/2023]I finished a small full stack project, you can find more information on my github!<p>
-            
+<section class="hero" id="about">
+    <img src="images/myphoto.jpg" alt="Yinan Wu">
+    <div>
+        <h1>Yinan Wu</h1>
+        <p class="role">PhD Student in Computer Science · North Carolina State University</p>
+        <p class="tagline">
+            I study how developers interact with AI. My work sits at the intersection of
+            <strong>Software Engineering</strong> and <strong>Human-Computer Interaction</strong>,
+            using mixed-methods user studies to understand usability, trust, and cognition
+            in AI-assisted programming.
+        </p>
+        <div class="links">
+            <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://www.linkedin.com/in/yinan-wu-99a214262/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="CV_Yinan_Wu.pdf" target="_blank" rel="noopener">CV (PDF)</a>
         </div>
     </div>
+</section>
+
+<section id="research">
+    <h2 class="section-title">Research</h2>
+    <p>
+        I bridge <strong>HCI</strong> and <strong>Software Engineering</strong> to understand how people — especially developers — interact with AI.
+        I run mixed-methods user studies and build research tools to capture how AI is reshaping programming behavior, trust, and cognition in the wild.
+    </p>
+    <p>
+        I am fortunate to be co-advised by
+        <a href="https://www.bowenxu.me/" target="_blank" rel="noopener">Dr.&nbsp;Bowen Xu</a>
+        and
+        <a href="https://kstolee.github.io/" target="_blank" rel="noopener">Dr.&nbsp;Kathryn Thomasset Stolee</a>
+        at NC State.
+    </p>
+</section>
+
+<section id="publications">
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub">
+        <div><span class="venue-tag">FSE '26</span></div>
+        <div>
+            <h3>How Do Developers Interact with AI? An Exploratory Study on Modeling Developer Programming Behavior</h3>
+            <p class="authors"><span class="me">Yinan Wu</span>, Ze Shi Li, Kathryn Thomasset Stolee, Bowen Xu</p>
+            <p class="meta">Research Track · International Conference on the Foundations of Software Engineering, 2026</p>
+            <p class="links"><a href="https://arxiv.org/abs/2604.16393" target="_blank" rel="noopener">[arXiv]</a></p>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div><span class="venue-tag">Under Review</span></div>
+        <div>
+            <h3>Test Code Review in the Era of GitHub Actions: A Replication Study</h3>
+            <p class="authors">Hui Sun, <span class="me">Yinan Wu</span>, Wesley K.G. Assunção, Kathryn Thomasset Stolee</p>
+            <p class="meta">Under submission to Empirical Software Engineering (EMSE), 2026</p>
+            <p class="links"><a href="https://arxiv.org/abs/2603.15935" target="_blank" rel="noopener">[arXiv]</a></p>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div><span class="venue-tag">ISSTA '26</span></div>
+        <div>
+            <h3>Hidden Licensing Risks in the LLMware Ecosystem</h3>
+            <p class="authors">Bo Wang, Yueyang Chen, Jieke Shi, Minghui Li, Yunbo Lyu, <span class="me">Yinan Wu</span>, Youfang Lin, Zhou Yang</p>
+            <p class="meta">International Symposium on Software Testing and Analysis, 2026</p>
+            <p class="links"><a href="https://arxiv.org/abs/2602.10758" target="_blank" rel="noopener">[arXiv]</a></p>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div><span class="venue-tag">VL/HCC '25</span></div>
+        <div>
+            <h3>Fast Code, Heavy Heart: Emotional Responses in AI-Assisted Programming</h3>
+            <p class="authors"><span class="me">Yinan Wu</span>, Ze Shi Li, Kathryn Thomasset Stolee, Bowen Xu</p>
+            <p class="meta">Poster · Symposium on Visual Languages and Human-Centric Computing, 2025</p>
+            <p class="links"><a href="#">[poster]</a></p>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div><span class="venue-tag">ICSME '25</span></div>
+        <div>
+            <h3>Learning from the Best: What Makes a Hugging Face Model Popular?</h3>
+            <p class="authors"><span class="me">Yinan Wu</span>, Zhou Yang, Bowen Xu, Bo Wang, Bach Le, David Lo</p>
+            <p class="meta">Registered Reports · International Conference on Software Maintenance and Evolution, 2025</p>
+            <p class="links"><a href="#">[paper]</a></p>
+        </div>
+    </div>
+</section>
+
+<section id="news">
+    <h2 class="section-title">News</h2>
+    <ul class="news-list">
+        <li>
+            <span class="date">Apr 2026</span>
+            <span>Paper <em>How Do Developers Interact with AI?</em> accepted to <strong>FSE 2026</strong> (Research Track); camera-ready submitted.</span>
+        </li>
+        <li>
+            <span class="date">Apr 2026</span>
+            <span>Paper <em>Hidden Licensing Risks in the LLMware Ecosystem</em> accepted to <strong>ISSTA 2026</strong>.</span>
+        </li>
+        <li>
+            <span class="date">Mar 2026</span>
+            <span>Preprint <em>Test Code Review in the Era of GitHub Actions</em> released on arXiv; under review at <strong>EMSE</strong>.</span>
+        </li>
+        <li>
+            <span class="date">Jan 2026</span>
+            <span>Started as TA for <em>Computer Security</em> at NC State.</span>
+        </li>
+        <li>
+            <span class="date">Aug 2025</span>
+            <span>Started as TA for <em>CSC 554 Human-Computer Interaction</em> at NC State.</span>
+        </li>
+        <li>
+            <span class="date">Aug 2025</span>
+            <span>Poster <em>Fast Code, Heavy Heart</em> accepted to <strong>VL/HCC 2025</strong>.</span>
+        </li>
+        <li>
+            <span class="date">Jul 2025</span>
+            <span>Registered Report <em>Learning from the Best</em> accepted to <strong>ICSME 2025</strong>.</span>
+        </li>
+        <li>
+            <span class="date">Apr 2025</span>
+            <span>Received the <strong>ICSE 2025 Student Travel Grant</strong>.</span>
+        </li>
+        <li>
+            <span class="date">Aug 2024</span>
+            <span>Began my PhD at NC State under the supervision of Dr. Bowen Xu.</span>
+        </li>
+    </ul>
+</section>
+
+<footer>
+    <span>© 2026 Yinan Wu</span>
+    <span>Raleigh, NC · ywu92 [at] ncsu [dot] edu</span>
+</footer>
+
 </body>
 </html>
