@@ -1,0 +1,162 @@
+% =============================================================
+%  Yinan Wu — Curriculum Vitae
+%  Compile with:  pdflatex cv.tex
+% =============================================================
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Geometry & spacing ----------
+\usepackage[top=0.75in,bottom=0.75in,left=0.85in,right=0.85in]{geometry}
+\usepackage{setspace}
+\setstretch{1.05}
+
+% ---------- Fonts & typography ----------
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{microtype}
+
+% ---------- Color, links, lists ----------
+\usepackage{xcolor}
+\definecolor{rule}{HTML}{2A2A2A}
+\definecolor{muted}{HTML}{555555}
+
+\usepackage[hidelinks,colorlinks=true,urlcolor=rule,linkcolor=rule]{hyperref}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt,parsep=0pt,label={\small\textbullet}}
+
+% ---------- Section headings ----------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalsize\scshape\bfseries\color{rule}}
+  {}{0em}{}
+  [\vspace{-6pt}{\color{rule}\rule{\linewidth}{0.4pt}}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+% ---------- Custom entry commands ----------
+% Two-line entry with right-aligned date / location
+% Usage: \entry{Title}{Subtitle}{Date}{Location}
+\newcommand{\entry}[4]{%
+  \noindent\begin{minipage}[t]{\linewidth}
+    \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & #3 \\
+      \textit{\color{muted}#2} & \textit{\color{muted}#4} \\
+    \end{tabular*}
+  \end{minipage}\vspace{2pt}
+}
+
+% Publication entry
+% Usage: \pub{Title}{Authors}{Venue & type}{Date}
+\newcommand{\pub}[4]{%
+  \noindent\begin{tabular*}{\linewidth}{@{}p{0.78\linewidth}@{\extracolsep{\fill}}r@{}}
+    \small\textbf{#1} & \small #4 \\
+  \end{tabular*}\\
+  \small\textit{#2}\\
+  {\small\color{muted}#3}
+  \vspace{6pt}
+}
+
+% Highlight my own name in author lists
+\newcommand{\me}{\textnormal{\textbf{Yinan Wu}}}
+
+% Reference entry
+\newcommand{\refperson}[3]{%
+  \noindent\textbf{#1}, \textit{#2}\\
+  \href{mailto:#3}{#3}\vspace{4pt}\\
+}
+
+\pagestyle{empty}
+
+% =============================================================
+\begin{document}
+
+% ---------- Header ----------
+\begin{center}
+  {\LARGE\bfseries Yinan Wu}\\[6pt]
+  {\color{muted}\small
+    \href{mailto:ywu92@ncsu.edu}{ywu92@ncsu.edu}
+    \,\textbar\,\, Raleigh, NC, USA
+    \,\textbar\,\, \href{https://www.linkedin.com/in/yinan-wu-99a214262/}{LinkedIn}
+    \,\textbar\,\, \href{https://github.com/YinanWusoymilk}{GitHub}
+  }
+\end{center}
+\vspace{4pt}
+
+% ---------- Profile ----------
+\section*{Profile}
+A PhD student in Computer Science specializing in \textbf{Software Engineering} and \textbf{Human-Computer Interaction}. Experienced in user study design, usability evaluation, and mixed-methods analysis. Skilled at bridging empirical research with practical design to enhance usability, developer experience, and productivity. Passionate about advancing user experience through human-centered, data-driven methodology.
+
+% ---------- Education ----------
+\section*{Education}
+\entry{PhD in Computer Science}{North Carolina State University}{Aug 2024 -- Present}{Raleigh, USA}
+\entry{MSc in Computer Science \textnormal{(Distinction)}}{University of Birmingham}{Sep 2022 -- Dec 2023}{Birmingham, UK}
+\entry{BEng in Materials Chemistry \textnormal{(Minor in English)}}{University of Science and Technology Beijing}{Aug 2015 -- Jul 2019}{Beijing, China}
+
+% ---------- Publications ----------
+\section*{Publications}
+
+\pub{How Do Developers Interact with AI? An Exploratory Study on Modeling Developer Programming Behavior}%
+{\me, Ze Shi Li, Kathryn Thomasset Stolee, Bowen Xu}%
+{Research Track \textbar{} International Conference on the Foundations of Software Engineering (FSE) 2026}%
+{Apr 2026}
+
+\pub{Hidden Licensing Risks in the LLMware Ecosystem}%
+{Bo Wang, Yueyang Chen, Jieke Shi, Minghui Li, Yunbo Lyu, \me, Youfang Lin, Zhou Yang}%
+{Research Track \textbar{} International Symposium on Software Testing and Analysis (ISSTA) 2026}%
+{Apr 2026}
+
+\pub{Test Code Review in the Era of GitHub Actions: A Replication Study}%
+{Hui Sun, \me, Wesley K.G.\ Assun\c{c}\~ao, Kathryn Thomasset Stolee}%
+{Under submission to Empirical Software Engineering (EMSE)}%
+{Mar 2026}
+
+\pub{Fast Code, Heavy Heart: Emotional Responses in AI-Assisted Programming}%
+{\me, Ze Shi Li, Kathryn Thomasset Stolee, Bowen Xu}%
+{Poster \textbar{} Symposium on Visual Languages and Human-Centric Computing (VL/HCC) 2025}%
+{Aug 2025}
+
+\pub{Learning from the Best: What Makes a Hugging Face Model Popular?}%
+{\me, Zhou Yang, Bowen Xu, Bo Wang, Bach Le, David Lo}%
+{Registered Reports \textbar{} International Conference on Software Maintenance and Evolution (ICSME) 2025}%
+{Jul 2025}
+
+% ---------- Experience ----------
+\section*{Experience}
+
+\entry{Research Assistant (Summer)}{Supervisor: Dr.\ Dominik Wermke, Department of Computer Science, NC State}{May 2026 -- Aug 2026}{Raleigh, USA}
+\vspace{4pt}
+
+\entry{Research Assistant}{Supervisor: Dr.\ Bowen Xu, Department of Computer Science, NC State}{Aug 2024 -- Aug 2025}{Raleigh, USA}
+\vspace{4pt}
+
+\entry{Research Engineer}{Supervisor: Dr.\ David Lo, School of Computing and Information Systems, SMU}{Jan 2024 -- Aug 2024}{Singapore}
+
+% ---------- Teaching ----------
+\section*{Teaching}
+
+\entry{Teaching Assistant}{Computer Security, NC State}{Jan 2026 -- Apr 2026}{Raleigh, USA}
+\vspace{4pt}
+
+\entry{Teaching Assistant}{CSC 554 Human-Computer Interaction (HCI), NC State}{Aug 2025 -- Dec 2025}{Raleigh, USA}
+
+% ---------- Skills ----------
+\section*{Skills}
+\begin{itemize}
+  \item \textbf{User Research:} Surveys, Interviews, Usability Testing, Think-Aloud Protocol, A/B Testing
+  \item \textbf{Qualitative Analysis:} Collaborative Coding, Thematic Analysis, Grounded Theory
+  \item \textbf{Quantitative Analysis:} Statistical Analysis, Mixed-methods, Visualization (Matplotlib, Seaborn)
+  \item \textbf{Programming for Research:} Python, Java, JavaScript
+\end{itemize}
+
+% ---------- Awards ----------
+\section*{Awards}
+\noindent\textbf{Travel Grant Recipient} \hfill 2025\\
+\textit{\color{muted}International Conference on Software Engineering (ICSE) 2025 Student Travel Grant}
+
+% ---------- References ----------
+\section*{References}
+\refperson{Dr.\ Bowen Xu}{Assistant Professor, North Carolina State University}{bxu22@ncsu.edu}
+\refperson{Dr.\ Kathryn Thomasset Stolee}{Associate Professor, North Carolina State University}{ktstolee@ncsu.edu}
+\refperson{Dr.\ Dominik Wermke}{Assistant Professor, North Carolina State University}{dwermke@ncsu.edu}
+\refperson{Dr.\ Ze Shi Li}{Assistant Professor, University of Oklahoma}{zeshili@ou.edu}
+
+\end{document}
