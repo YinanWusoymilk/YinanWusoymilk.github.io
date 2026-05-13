@@ -1,3 +1,6 @@
+# Private application materials (cover letters, etc.)
+applications/
+
 # LaTeX build artifacts
 *.aux
 *.log
