@@ -255,6 +255,35 @@
             font-size: 0.92rem;
         }
 
+        .name-note {
+            padding-top: 28px;
+            padding-bottom: 8px;
+        }
+        .name-note .inner {
+            border-top: 1px dashed var(--line);
+            padding-top: 22px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+        .name-note .label {
+            margin: 0 0 8px 0;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .name-note p {
+            margin: 0 0 8px 0;
+        }
+        .name-note .name {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .name-note .ipa {
+            color: var(--text);
+            font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.88rem;
+        }
+
         footer {
             max-width: var(--max);
             margin: 40px auto 0;
@@ -438,6 +467,21 @@
             <span>Began my PhD at NC State.</span>
         </li>
     </ul>
+</section>
+
+<section class="name-note" aria-label="A note on my Chinese name">
+    <div class="inner">
+        <p class="label">A quiet meaning in my name</p>
+        <p>
+            My Chinese name is <span class="name">吴疑难</span>, pronounced <span class="name">Wú Yínán</span> in Mandarin Chinese
+            <span class="ipa">/u³⁵ i³⁵ nän³⁵/</span>.
+        </p>
+        <p>
+            The small wordplay is that <span class="name">吴</span> sounds like <span class="name">无</span>, meaning "no" or "without,"
+            while <span class="name">疑难</span> means "difficulty" or "problem." So the name sounds like <span class="name">无疑难</span>:
+            no difficulties.
+        </p>
+    </div>
 </section>
 
 <footer>
